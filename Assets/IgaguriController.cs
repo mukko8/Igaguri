@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class IgaguriController : MonoBehaviour
 {
+    Rigidbody rb;
     public void Shoot(Vector3 dir){
-        GetComponent<Rigidbody>().AddForce(dir);
+        rb.AddForce(dir);
+    }
+    void OnCollisionEnter(Collision collision) {
+        rb.isKinematic=true;
     }
     // Start is called before the first frame update
     void Start()
     {
         Application.targetFrameRate=60;
+        rb=GetComponent<Rigidbody>();
         Shoot(new Vector3(0,200,2000));
     }
 
