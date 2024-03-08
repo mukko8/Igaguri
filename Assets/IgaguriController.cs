@@ -10,6 +10,8 @@ public class IgaguriController : MonoBehaviour
     }
     void OnCollisionEnter(Collision collision) {
         rb.isKinematic=true;
+        GetComponent<ParticleSystem>().Play();
+        //Destroy(collision,gameObject);衝突されたものが消える
     }
     // Start is called before the first frame update
     void Start()
